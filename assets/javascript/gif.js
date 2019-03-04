@@ -2,73 +2,98 @@
 
 var movieArray = ["Pulp Fiction", "Die Hard", "The Fifth Element"];
 
-function makeButtons() {
-    for (var i = 0; i < movieArray.length; i++){
-    
-    var gifButton = $("<button>");
-    gifButton.addClass("movie-button");
-    gifButton.attr("data-movie", movieArray[i]);
-    gifButton.text(movieArray[i]);
-    $("#button-div").append(gifButton);
 
+
+
+    function makeButtons() {
+        for (var i = 0; i < movieArray.length; i++){
+    
+        var gifButton = $("<button>");
+        gifButton.addClass("movie-button");
+        gifButton.attr("data-movie", movieArray[i]);
+        gifButton.text(movieArray[i]);
+        $("#button-div").append(gifButton);
+
+        };
     };
-};
 
-makeButtons();
+    makeButtons();
 
-    $("button").on("click", function() {
+        $(".movie-button").on("click", function() {
 
-    $(".gif-images").remove();
-    var movie = $(this).attr("data-movie");
+        $(".gif-images").remove();
+        // $("#button-div").empty();
+        var movie = $(this).attr("data-movie");
 
-    var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + movie + "&api_key=OKuVGjgT0V7r20tpzmToIqOjeggIVUYM&limit=10";
-    
-    $.ajax({
-    url: queryURL,
-    method: "GET"
-    })
-    
-    .then(function(response) {
+        var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + movie + "&api_key=OKuVGjgT0V7r20tpzmToIqOjeggIVUYM&limit=10";
         
-    
-        var results = response.data;
-
+        $.ajax({
+        url: queryURL,
+        method: "GET"
+        })
         
+        .then(function(response) {
+            
+        
+            var results = response.data;
 
-        for (var i = 0; i < results.length; i++) {
+            
 
-            // Only taking action if the photo has an appropriate rating
-            if (results[i].rating !== "r" && results[i].rating !== "pg-13") {
-            // Creating a div for the gif
-            var gifDiv = $("<div>");
-            gifDiv.addClass("gif-images");
-            // Storing the result item's rating
-            var rating = results[i].rating;
+            for (var i = 0; i < results.length; i++) {
 
-            // Creating a paragraph tag with the result item's rating
-             var p = $("<p>").text("Rating: " + rating);
+                // Only taking action if the photo has an appropriate rating
+                if (results[i].rating !== "r" && results[i].rating !== "pg-13") {
+                // Creating a div for the gif
+                var gifDiv = $("<div>");
+                gifDiv.addClass("gif-images");
+                // Storing the result item's rating
+                var rating = results[i].rating;
 
-            // Creating an image tag
-            var personImage = $("<img>");
+                // Creating a paragraph tag with the result item's rating
+                var p = $("<p>").text("Rating: " + rating);
 
-            // Giving the image tag an src attribute of a proprty pulled off the
-            // result item
-            personImage.attr("src", results[i].images.fixed_height.url);
+                // Creating an image tag
+                var personImage = $("<img>");
 
-            // Appending the paragraph and personImage we created to the "gifDiv" div we created
-            gifDiv.append(p);
-            gifDiv.append(personImage);
+                // Giving the image tag an src attribute of a proprty pulled off the
+                // result item
+                personImage.attr("src", results[i].images.fixed_height.url);
 
-            $("#gif-div").append(gifDiv);
+                // Appending the paragraph and personImage we created to the "gifDiv" div we created
+                gifDiv.append(p);
+                gifDiv.append(personImage);
+
+                $("#gif-div").append(gifDiv);
+
+                }
+        
 
             }
-    
+        });
 
-        }
     });
 
-});
+    // $("#user-button").submit(function(event){
+    //     event.preventDefault();
+    // });
 
+    $("#add-gif").on("click", function(event) {
+        event.preventDefault();
+        console.log("ive been clicked");
+        alert("hey");
+        // return false;
+
+        // This line will grab the text from the input box
+        var movie = $("#movie-input").val().trim();
+        // The movie from the textbox is then added to our array
+        movieArray.push(movie);
+        console.log(movieArray);
+        // calling renderButtons which handles the processing of our movie array
+        makeButtons();
+    });
+   
+       
+  
 
 
 
