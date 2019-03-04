@@ -1,32 +1,76 @@
 
 
-var gifArray = ["Pulp Fiction", "Die Hard", "The Fifth Element"];
+var movieArray = ["Pulp Fiction", "Die Hard", "The Fifth Element"];
 
 function makeButtons() {
+    for (var i = 0; i < movieArray.length; i++){
+    
+    var gifButton = $("<button>");
+    gifButton.addClass("movie-button");
+    gifButton.attr("data-movie", movieArray[i]);
+    gifButton.text(movieArray[i]);
+    $("#button-div").append(gifButton);
 
-var gifButton = $("<button>");
-gifButton.attr("data", movie);
-gifButton.text(movie);
-$(".button-div").append(gifButton);
-
-
+    };
 };
 
-movie = "Die Hard";
+makeButtons();
 
+    $("button").on("click", function() {
+
+    console.log("I got clicked");
+    $(".gif-images").remove();
+var movie = $(this).attr("data-movie");
 
 var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + movie + "&api_key=OKuVGjgT0V7r20tpzmToIqOjeggIVUYM&limit=10";
-
-$.ajax({
+    console.log(movie);
+    $.ajax({
     url: queryURL,
     method: "GET"
-  }).then(function(response) {
+    })
     
-    console.log(response);
+    .then(function(response) {
+        console.log(response);
+    
+        var results = response.data;
 
-  });
+        console.log(results);
 
-makeButtons();
+        for (var i = 0; i < results.length; i++) {
+
+            // Only taking action if the photo has an appropriate rating
+            if (results[i].rating !== "r" && results[i].rating !== "pg-13") {
+            // Creating a div for the gif
+            var gifDiv = $("<div>");
+            gifDiv.addClass("gif-images");
+            // Storing the result item's rating
+            var rating = results[i].rating;
+
+            // Creating a paragraph tag with the result item's rating
+             var p = $("<p>").text("Rating: " + rating);
+
+            // Creating an image tag
+            var personImage = $("<img>");
+
+            // Giving the image tag an src attribute of a proprty pulled off the
+            // result item
+            personImage.attr("src", results[i].images.fixed_height.url);
+
+            // Appending the paragraph and personImage we created to the "gifDiv" div we created
+            gifDiv.append(p);
+            gifDiv.append(personImage);
+
+            $("#gif-div").append(gifDiv);
+
+            }
+    
+
+        }
+    });
+
+});
+
+
 
 
 // start by creating an array of topics for the gif buttons
