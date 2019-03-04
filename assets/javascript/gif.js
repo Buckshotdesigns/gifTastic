@@ -16,10 +16,9 @@ function makeButtons() {
 
 makeButtons();
 
-    $(".movie-button").on("click", function() {
+    $("button").on("click", function() {
 
     $(".gif-images").remove();
-    // $("#button-div").empty();
     var movie = $(this).attr("data-movie");
 
     var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + movie + "&api_key=OKuVGjgT0V7r20tpzmToIqOjeggIVUYM&limit=10";
@@ -69,20 +68,6 @@ makeButtons();
     });
 
 });
-event.preventDefault();
-$("#add-movie").on("click", function(event) {
-    console.log("ive been clicked");
-    
-    // event.preventDefault();
-
-    // This line will grab the text from the input box
-    var movie = $("#movie-input").val().trim();
-    // The movie from the textbox is then added to our array
-    movieArray.push(movie);
-    console.log(movieArray);
-    // calling renderButtons which handles the processing of our movie array
-    makeButtons();
-  });
 
 
 
