@@ -6,6 +6,7 @@ var movieArray = ["Pulp Fiction", "Die Hard", "The Fifth Element"];
 
 
     function makeButtons() {
+        $("#button-div").empty();
         for (var i = 0; i < movieArray.length; i++){
     
         var gifButton = $("<button>");
