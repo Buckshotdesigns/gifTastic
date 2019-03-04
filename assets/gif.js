@@ -77,7 +77,7 @@ var movieArray = ["Pulp Fiction", "Die Hard", "The Fifth Element"];
     //     event.preventDefault();
     // });
 
-    $("#user-button").on("click", function(event) {
+    $("#add-gif").on("click", function(event) {
         event.preventDefault();
         console.log("ive been clicked");
         alert("hey");
