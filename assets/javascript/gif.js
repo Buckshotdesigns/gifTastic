@@ -79,6 +79,9 @@ var movieArray = ["Pulp Fiction", "Die Hard", "The Fifth Element", "Joe Dirt", "
 
         // This line will grab the text from the input box
         var movie = $("#movie-input").val().trim();
+        if (movie === ""){
+          return;
+        }
         // The movie from the textbox is then added to our array
         movieArray.push(movie);
         
