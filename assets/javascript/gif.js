@@ -16,14 +16,14 @@ var movieArray = ["Pulp Fiction", "Die Hard", "The Fifth Element"];
         $("#button-div").append(gifButton);
 
         };
-    };
+    // };
 
-    makeButtons();
+    // makeButtons();
 
         $(".movie-button").on("click", function() {
 
         $(".gif-images").remove();
-        // $("#button-div").empty();
+        
         var movie = $(this).attr("data-movie");
 
         var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + movie + "&api_key=OKuVGjgT0V7r20tpzmToIqOjeggIVUYM&limit=10";
@@ -35,10 +35,7 @@ var movieArray = ["Pulp Fiction", "Die Hard", "The Fifth Element"];
         
         .then(function(response) {
             
-        
             var results = response.data;
-
-            
 
             for (var i = 0; i < results.length; i++) {
 
@@ -54,15 +51,15 @@ var movieArray = ["Pulp Fiction", "Die Hard", "The Fifth Element"];
                 var p = $("<p>").text("Rating: " + rating);
 
                 // Creating an image tag
-                var personImage = $("<img>");
+                var movieImage = $("<img>");
 
                 // Giving the image tag an src attribute of a proprty pulled off the
                 // result item
-                personImage.attr("src", results[i].images.fixed_height.url);
+                movieImage.attr("src", results[i].images.fixed_height.url);
 
                 // Appending the paragraph and personImage we created to the "gifDiv" div we created
                 gifDiv.append(p);
-                gifDiv.append(personImage);
+                gifDiv.append(movieImage);
 
                 $("#gif-div").append(gifDiv);
 
@@ -74,27 +71,25 @@ var movieArray = ["Pulp Fiction", "Die Hard", "The Fifth Element"];
 
     });
 
-    // $("#user-button").submit(function(event){
-    //     event.preventDefault();
-    // });
+};
 
+   
+   
     $("#add-gif").on("click", function(event) {
         event.preventDefault();
         console.log("ive been clicked");
-        alert("hey");
-        // return false;
 
         // This line will grab the text from the input box
         var movie = $("#movie-input").val().trim();
         // The movie from the textbox is then added to our array
         movieArray.push(movie);
-        console.log(movieArray);
-        // calling renderButtons which handles the processing of our movie array
+        
+        // calling makeButtons which handles the processing of our movie array
         makeButtons();
     });
    
        
-  
+    makeButtons();
 
 
 
