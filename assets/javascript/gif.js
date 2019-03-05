@@ -1,6 +1,6 @@
 
 
-var movieArray = ["Pulp Fiction", "Die Hard", "The Fifth Element"];
+var movieArray = ["Pulp Fiction", "Die Hard", "The Fifth Element", "Joe Dirt", "The Running Man"];
 
 
 
