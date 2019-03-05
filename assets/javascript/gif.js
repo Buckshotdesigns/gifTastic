@@ -1,9 +1,6 @@
 
 
-var movieArray = ["Pulp Fiction", "Die Hard", "The Fifth Element", "Joe Dirt", "The Running Man"];
-
-
-
+var movieArray = ["Pulp Fiction", "Die Hard", "The Fifth Element", "Joe Dirt", "The Running Man", "Commando", "Total Recall","The Expendables", "Snatch","Lock Stock and Two Smoking Barrels"];
 
     function makeButtons() {
         $("#button-div").empty();
@@ -17,7 +14,6 @@ var movieArray = ["Pulp Fiction", "Die Hard", "The Fifth Element", "Joe Dirt", "
 
         };
     
-
         $(".movie-button").on("click", function() {
 
         $(".gif-images").remove();
