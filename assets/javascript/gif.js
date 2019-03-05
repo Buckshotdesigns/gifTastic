@@ -16,9 +16,7 @@ var movieArray = ["Pulp Fiction", "Die Hard", "The Fifth Element"];
         $("#button-div").append(gifButton);
 
         };
-    // };
-
-    // makeButtons();
+    
 
         $(".movie-button").on("click", function() {
 
@@ -34,7 +32,7 @@ var movieArray = ["Pulp Fiction", "Die Hard", "The Fifth Element"];
         })
         
         .then(function(response) {
-            
+            console.log(response);
             var results = response.data;
 
             for (var i = 0; i < results.length; i++) {
@@ -55,11 +53,15 @@ var movieArray = ["Pulp Fiction", "Die Hard", "The Fifth Element"];
 
                 // Giving the image tag an src attribute of a proprty pulled off the
                 // result item
-                movieImage.attr("src", results[i].images.fixed_height.url);
-
+                movieImage.attr("src", results[i].images.original_still.url);
+                movieImage.attr("data-still", results[i].images.original_still.url);
+                movieImage.attr("data-animate", results[i].images.fixed_height.url);
+                movieImage.attr("data-state", "still");
+                movieImage.addClass("gif");
                 // Appending the paragraph and personImage we created to the "gifDiv" div we created
-                gifDiv.append(p);
+                
                 gifDiv.append(movieImage);
+                gifDiv.append(p);
 
                 $("#gif-div").append(gifDiv);
 
@@ -87,11 +89,26 @@ var movieArray = ["Pulp Fiction", "Die Hard", "The Fifth Element"];
         // calling makeButtons which handles the processing of our movie array
         makeButtons();
     });
-   
        
-    makeButtons();
+    // makeButtons();
 
+    $(document).on("click", ".gif", function() {
+        console.log("ive been clicked");
+        // The attr jQuery method allows us to get or set the value of any attribute on our HTML element
+        var state = $(this).attr("data-state");
+        // If the clicked image's state is still, update its src attribute to what its data-animate value is.
+        // Then, set the image's data-state to animate
+        // Else set src to the data-still value
+        if (state === "still") {
+          $(this).attr("src", $(this).attr("data-animate"));
+          $(this).attr("data-state", "animate");
+        } else {
+          $(this).attr("src", $(this).attr("data-still"));
+          $(this).attr("data-state", "still");
+        }
+      });
 
+      makeButtons();
 
 // start by creating an array of topics for the gif buttons
 // we then need to loop through that array and generate buttons
