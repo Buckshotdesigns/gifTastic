@@ -7,7 +7,7 @@ var movieArray = ["Pulp Fiction", "Die Hard", "The Fifth Element", "Joe Dirt", "
         for (var i = 0; i < movieArray.length; i++){
     
         var gifButton = $("<button>");
-        gifButton.addClass("movie-button");
+        gifButton.addClass("movie-button btn btn-danger");
         gifButton.attr("data-movie", movieArray[i]);
         gifButton.text(movieArray[i]);
         $("#button-div").append(gifButton);
@@ -49,9 +49,9 @@ var movieArray = ["Pulp Fiction", "Die Hard", "The Fifth Element", "Joe Dirt", "
 
                 // Giving the image tag an src attribute of a proprty pulled off the
                 // result item
-                movieImage.attr("src", results[i].images.original_still.url);
-                movieImage.attr("data-still", results[i].images.original_still.url);
-                movieImage.attr("data-animate", results[i].images.fixed_height.url);
+                movieImage.attr("src", results[i].images.fixed_width_still.url);
+                movieImage.attr("data-still", results[i].images.fixed_width_still.url);
+                movieImage.attr("data-animate", results[i].images.fixed_width.url);
                 movieImage.attr("data-state", "still");
                 movieImage.addClass("gif");
                 // Appending the paragraph and personImage we created to the "gifDiv" div we created

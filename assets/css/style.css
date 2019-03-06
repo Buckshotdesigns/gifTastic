@@ -3,3 +3,18 @@
 #movie-form{
     padding: 2rem 0;
 }
+
+.movie-button {
+    color: #dfd9d9;
+    margin: .25rem .5rem;
+    padding: .75rem;
+    border-radius: 15px;
+}
+
+#add-gif {
+    margin: 2rem 0;
+}
+
+button:hover {
+    opacity: .7;
+}
