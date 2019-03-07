@@ -19,7 +19,7 @@ var movieArray = ["Pulp Fiction", "Die Hard", "The Fifth Element", "Joe Dirt", "
         
         var movie = $(this).attr("data-movie");
           // Start of api call to giphy
-        var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + movie + "&api_key=OKuVGjgT0V7r20tpzmToIqOjeggIVUYM&limit=10";
+        var queryURL = "https://api.giphy.com/v1/gifs/search?q=movie." + movie + "&api_key=OKuVGjgT0V7r20tpzmToIqOjeggIVUYM&limit=10";
         
         $.ajax({
         url: queryURL,
