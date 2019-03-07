@@ -1,7 +1,21 @@
 
-.jumbotron{
-    margin-top: 2rem;
+body, html {
+    height: 100%;
+    
+    
 }
+#place-image{
+    
+    background-image: url("../images/background.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: auto;
+    background-position: center center;
+    padding-top: 3rem;
+    
+   
+}
+
 
 h1{
     padding-bottom: 1rem;
@@ -24,16 +38,22 @@ h1{
 button:hover {
     opacity: .7;
 }
-
+#gif-div{
+    display: flex;
+    flex-wrap: wrap;
+    text-align: center;
+    justify-content: center;
+   
+    
+    
+}
 
 .gif-images {
-    
-    float: left;
     padding: 0 1rem;
 }
 
-.gif {
-    
+.gif { 
     height: 150px;
     width: 200px;
+    
 }
