@@ -1,8 +1,6 @@
 
 body, html {
-    min-height: 100%;
-    
-    
+    height: 100%;
 }
 #place-image{
     
@@ -12,10 +10,7 @@ body, html {
     height: auto;
     background-position: center;
     padding-top: 3rem;
-    
-   
 }
-
 
 h1{
     padding-bottom: 1rem;
@@ -43,9 +38,6 @@ button:hover {
     flex-wrap: wrap;
     text-align: center;
     justify-content: center;
-   
-    
-    
 }
 
 .gif-images {
