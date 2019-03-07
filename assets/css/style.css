@@ -1,5 +1,11 @@
 
+.jumbotron{
+    margin-top: 2rem;
+}
 
+h1{
+    padding-bottom: 1rem;
+}
 #movie-form{
     padding: 2rem 0;
 }
@@ -17,4 +23,17 @@
 
 button:hover {
     opacity: .7;
+}
+
+
+.gif-images {
+    
+    float: left;
+    padding: 0 1rem;
+}
+
+.gif {
+    
+    height: 150px;
+    width: 200px;
 }

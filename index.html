@@ -10,21 +10,23 @@
     <title>Movie Gifs</title>
 </head>
 <body>
-    <div class="container">
-        <div class="jumbotron text-center">
-            <div id="button-div"></div>
+    <div id="place-image">
+        <div class="container">
+            <div class="jumbotron text-center">
+                <h1>Welcome to Movie Gif</h1>
+                <div id="button-div"></div>
 
-            <form id="movie-form">
-                <label for="movie-input">Add your own Movie</label>
-                <input type="text" id="movie-input" ><br>
+                <form id="movie-form">
+                    <label for="movie-input">Add your own Movie</label>
+                    <input type="text" id="movie-input" ><br>
 
-                <!-- Button triggers new movie to be added -->
-                <button input class= "btn btn-primary" id="add-gif" type="submit" value="Submit">Enter Movie</button>
+                    <button input class= "btn btn-primary" id="add-gif" type="submit" value="Submit">Enter Movie</button>
+            
+                </form>
+            </div>
+                <div id="gif-div"></div>
         
-            </form>
         </div>
-            <div id="gif-div"></div>
-       
     </div>
     <script src= "assets/javascript/gif.js"></script>
 </body>
