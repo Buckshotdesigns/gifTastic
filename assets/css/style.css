@@ -3,12 +3,12 @@
     background-image: url("../images/background.png");
     background-size: cover;
     background-repeat: no-repeat;
-    height: auto;
+    height: 100%;
     background-position: center;
 }
 #place-image{
+
     
-    height: 100%;
     padding-top: 3rem;
 }
 
@@ -47,5 +47,7 @@ button:hover {
 .gif { 
     height: 150px;
     width: 200px;
-    
+}
+p {
+    color: #faf8f8;
 }
